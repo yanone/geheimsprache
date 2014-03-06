@@ -25,7 +25,7 @@ for u in longestCMAPtable.cmap:
 newCMAP = copy.copy(originalCMAP)
 random.shuffle(newCMAP)
 
-
+# These funtions are ugly, but work well. Improve them.
 def newNameToUnicode(unicode):
 	for i in range(len(originalCMAP)):
 		if originalCMAP[i][0] == unicode:
@@ -67,6 +67,9 @@ end = time.time()
 fontBase64 = base64.b64encode(open('new.ttf').read())
 # Delete the temporary file
 os.remove('new.ttf')
+
+# Time it took to create the web font
+duration = end - start
 
 # Output this text alongside the new throw-away web font
 securetext = translateText('Putin is a wussy.')
